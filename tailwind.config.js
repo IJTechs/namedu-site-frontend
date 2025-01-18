@@ -3,19 +3,33 @@ export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
+    screens: {
+      xxs: '360px',
+      xs: '480px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1920px',
+      '4xl': '2560px',
+    },
     extend: {
-      screens: {
-        xxs: '360px',
-        xs: '480px',
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-        '3xl': '1920px',
-        '4xl': '2560px',
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          xxs: '0.55rem',
+          xs: '0.75rem',
+          sm: '1rem',
+          md: '1.25rem',
+          lg: '1.5rem',
+          xl: '4rem',
+          '2xl': '7rem',
+          '3xl': '16rem',
+          '4xl': '32rem',
+        },
       },
-
       borderWidth: {
         0.5: '0.5px',
         1: '1px',

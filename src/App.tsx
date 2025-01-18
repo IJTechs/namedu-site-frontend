@@ -1,5 +1,11 @@
+import Router from './routes/index.routes';
+
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 };
 
 export default App;
