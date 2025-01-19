@@ -1,8 +1,7 @@
-import { lazy } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import ErrorBoundry from '@components/shared/ErrorBoundry';
 import Suspense from '@components/shared/Suspense';
+import { lazy } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from '@/layouts/MainLayout';
 
@@ -29,7 +28,7 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: 'news/:news_id',
+        path: 'news',
         element: (
           <ErrorBoundry>
             <Suspense>

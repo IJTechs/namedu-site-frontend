@@ -43,7 +43,7 @@ export default [
         { argsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+
       '@typescript-eslint/no-shadow': ['error'],
 
       // Prettier rules

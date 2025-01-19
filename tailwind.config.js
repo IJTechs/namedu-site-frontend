@@ -15,6 +15,15 @@ export default {
       '4xl': '2560px',
     },
     extend: {
+      animation: {
+        scroll: 'scroll 30s linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
       container: {
         center: true,
         padding: {
@@ -53,6 +62,10 @@ export default {
         20: '20px',
       },
 
+      boxShadow: {
+        'card-shadow': '0px 1px 5px 1px rgba(0, 0, 0, 0.02)',
+      },
+
       fontSize: {
         'fluid-h1': 'clamp(2.5rem, 5vw, 3.9rem)',
         'fluid-h2': 'clamp(2rem, 3.5vw, 3rem)',
@@ -79,6 +92,7 @@ export default {
         // Custom colors
         'rgba-white-10': 'rgba(255, 255, 255, 0.10)',
         'rgba-white-20': 'rgba(255, 255, 255, 0.20)',
+
         'primary-background': 'var(--color-primary-background)',
         'primary-heading': 'var(--color-primary-heading)',
         'primary-text': 'var(--color-primary-text)',

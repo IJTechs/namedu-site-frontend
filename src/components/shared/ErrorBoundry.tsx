@@ -1,49 +1,49 @@
-import { Component, ErrorInfo, ReactNode } from 'react'
-import { ComponentType } from 'react'
-import { useLocation, Location } from 'react-router-dom'
+import { Component, ErrorInfo, ReactNode } from 'react';
+import { ComponentType } from 'react';
+import { useLocation, Location } from 'react-router-dom';
 interface ErrorBoundaryProps extends WithRouterProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
-  error?: string
+  hasError: boolean;
+  error?: string;
 }
 
 export interface WithRouterProps {
-  location: Location
+  location: Location;
 }
 
 export const GetRouterLocation = <P extends WithRouterProps>(
-  OriginalComponent: ComponentType<P>,
+  OriginalComponent: ComponentType<P>
 ): ComponentType<Omit<P, 'location'>> => {
   const NewComponent = (props: Omit<P, 'location'>) => {
-    const location = useLocation()
+    const location = useLocation();
 
-    return <OriginalComponent {...(props as P)} location={location} />
-  }
+    return <OriginalComponent {...(props as P)} location={location} />;
+  };
 
-  return NewComponent
-}
+  return NewComponent;
+};
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
-    super(props)
-    this.state = { hasError: false }
+    super(props);
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    return { hasError: true, error: error.message }
+    return { hasError: true, error: error.message };
   }
 
   componentDidUpdate(prevProps: ErrorBoundaryProps) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
-      this.setState({ hasError: false, error: undefined })
+      this.setState({ hasError: false, error: undefined });
     }
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('Error:', error, info)
+    console.error('Error:', error, info);
   }
 
   render() {
@@ -59,10 +59,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <p className=" text-xl w-[900px]">Error: {this.state.error}</p>
           )}
         </div>
-      )
+      );
     }
-    return this.props.children
+    return this.props.children;
   }
 }
 
-export default GetRouterLocation(ErrorBoundary)
+export default GetRouterLocation(ErrorBoundary);

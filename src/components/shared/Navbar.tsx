@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { NAVLINKS_STATIC } from '@/static/navlinks.static';
-import { Button } from '@/components/shared/Button';
-import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { AlignJustify } from 'lucide-react';
 import { AlignRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Button } from '@/components/shared/Button';
+import { NAVLINKS_STATIC } from '@/static/navlinks.static';
+import { scrollTo } from '@/utils/scrollTo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,12 +26,14 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden xl:flex items-center gap-8 text-white text-lg">
-          {NAVLINKS_STATIC.map(({ title }) => (
+          {NAVLINKS_STATIC.map(({ title, to }) => (
             <li
               key={title}
-              className="cursor-pointer hover:text-[#ffffff]/50 duration-300"
+              className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
             >
-              {title}
+              <button onClick={() => scrollTo({ targetId: to })}>
+                {title}
+              </button>
             </li>
           ))}
         </ul>
@@ -80,13 +84,19 @@ const Navbar = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <ul className="flex flex-col justify-center items-center gap-4 text-white text-lg">
-                {NAVLINKS_STATIC.map(({ title }) => (
+                {NAVLINKS_STATIC.map(({ title, to }) => (
                   <li
                     key={title}
-                    className="cursor-pointer hover:text-[#ffffff]/50 duration-300"
-                    onClick={toggleMenu}
+                    className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
                   >
-                    {title}
+                    <button
+                      onClick={() => {
+                        scrollTo({ targetId: to });
+                        toggleMenu();
+                      }}
+                    >
+                      {title}
+                    </button>
                   </li>
                 ))}
                 <Button

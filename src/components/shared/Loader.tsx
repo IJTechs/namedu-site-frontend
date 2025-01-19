@@ -1,4 +1,5 @@
 import Lottie from 'lottie-react';
+
 import animationData from '@/assets/loader.json';
 
 const Loader = () => {

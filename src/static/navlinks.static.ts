@@ -1,7 +1,8 @@
 export const NAVLINKS_STATIC = [
-  { title: 'Boshqarma Haqida' },
-  { title: 'Me’yoriy Hujjatlar' },
-  { title: 'Ta’lim Muassasalari' },
-  { title: 'Qabul - 2024' },
-  { title: 'Ma’naviy-Ma’rifiy Ishlar' },
+  { title: 'Yangiliklar', to: 'news' },
+  { title: 'Rahbariyat', to: 'executives' },
+  { title: 'Boshqarma Haqida', to: 'management' },
+  { title: 'Me’yoriy Hujjatlar', to: 'documents' },
+  { title: 'Ta’lim Muassasalari', to: 'eduInstitutes' },
+  { title: 'Qabul', to: 'admission' },
 ];
