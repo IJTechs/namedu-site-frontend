@@ -1,11 +1,5 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-// Packages
-import {
-  ControllerRenderProps,
-  ControllerFieldState,
-  UseFormStateReturn,
-} from 'react-hook-form';
+import React from 'react';
 
 // Interfaces
 export interface InputProps {
@@ -48,21 +42,4 @@ export interface InputProps {
 export interface TextAreaProps extends Omit<InputProps, 'onBlur' | 'onFocus'> {
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
-}
-
-export interface FormProps {
-  label?: string;
-  children?: React.ReactNode;
-  className?: string;
-  id?: string;
-  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
-}
-
-export interface FormFieldProps {
-  name: string;
-  render: (props: {
-    field: ControllerRenderProps;
-    fieldState: ControllerFieldState;
-    formState: UseFormStateReturn<FormData>;
-  }) => React.ReactElement;
 }

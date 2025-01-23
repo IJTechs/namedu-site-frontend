@@ -1,4 +1,4 @@
-import { SOCIAL_MEDIA } from '@/static/socialmedia.static';
+import { SOCIAL_MEDIA } from '@/utils/static-resources/socialmedia.static';
 
 interface ISocialSidebar {
   className?: string;

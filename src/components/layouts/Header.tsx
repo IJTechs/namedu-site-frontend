@@ -6,9 +6,9 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import Navbar from '../shared/Navbar';
 import Hero_BG from '/assets/images/hero_image.png';
 
-import { useGetNewsById } from '@/hooks/news.hooks';
-import { ROUTE_PATHS } from '@/constants/route.paths';
-import { scrollTo } from '@/utils/scrollTo';
+import { useNewsByIdQuery } from '@/queries/news.query';
+import { ROUTE_PATHS } from '@/utils/constants/route.paths';
+import { scrollTo } from '@/utils/scroll-to';
 import SocialSidebar from '../shared/SocialSidebar';
 
 const Header = () => {
@@ -16,28 +16,23 @@ const Header = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
-  const { data: news } = useGetNewsById(id || '');
+  const { data: news } = useNewsByIdQuery(id || '');
+
+  const pathName = location.pathname.startsWith(`/${ROUTE_PATHS.NEWS_DETAILS}`);
 
   const getBackgroundImage = () => {
     if (location.pathname === '/') {
       return Hero_BG;
-    } else if (
-      location.pathname.startsWith(`/${ROUTE_PATHS.NEWS_DETAILS}`) &&
-      news?.image
-    ) {
+    } else if (pathName && news?.image) {
       return news.image;
     }
     return Hero_BG;
   };
 
-  const headerHeight = location.pathname.startsWith(
-    `/${ROUTE_PATHS.NEWS_DETAILS}`
-  )
-    ? 'h-[650px]'
-    : 'lg:min-h-screen h-screen';
+  const headerHeight = pathName ? 'h-[650px]' : 'lg:min-h-screen h-screen';
 
   const getGradient = () => {
-    if (location.pathname.startsWith(`/${ROUTE_PATHS.NEWS_DETAILS}`)) {
+    if (pathName) {
       return `linear-gradient(180deg, rgba(0, 0, 0, 0.85) 10.69%, rgba(0, 0, 0, 0.4) 22.75%)`;
     }
     return `linear-gradient(to bottom, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.80))`;

@@ -1,16 +1,12 @@
 import emailjs from '@emailjs/browser';
 
-interface EmailParams {
-  name: string;
-  phone_number: string;
-  message: string;
-}
+import { IEmail } from '../interfaces/emailjs.interface';
 
 export const sendEmail = async ({
   name,
   phone_number,
   message,
-}: EmailParams): Promise<void> => {
+}: IEmail): Promise<void> => {
   const templateParams = {
     name,
     phone_number,

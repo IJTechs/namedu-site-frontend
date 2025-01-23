@@ -1,23 +1,26 @@
-import ErrorBoundry from '@components/shared/ErrorBoundry';
-import Suspense from '@components/shared/Suspense';
 import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import MainLayout from '@/layouts/MainLayout';
+import ErrorBoundry from '@components/shared/ErrorBoundry';
+import Suspense from '@components/shared/Suspense';
 
+import { ROUTE_PATHS } from '@/utils/constants/route.paths';
+
+import MainLayout from '@/layouts/main-layout';
 const HomePage = lazy(() => import('@pages/Home/Home'));
 const NewsPage = lazy(() => import('@pages/News/News'));
-import { ROUTE_PATHS } from '@/constants/route.paths';
 import NotFound from '@/pages/404/NotFound';
 
 const routes = createBrowserRouter([
   {
+    // Main layout
     path: ROUTE_PATHS.ROOT,
     element: (
       <ErrorBoundry>
         <MainLayout />
       </ErrorBoundry>
     ),
+    // Main index page
     children: [
       {
         index: true,
@@ -29,6 +32,7 @@ const routes = createBrowserRouter([
           </ErrorBoundry>
         ),
       },
+      // News details page
       {
         path: `${ROUTE_PATHS.NEWS_DETAILS}/:id`,
         element: (
@@ -41,9 +45,16 @@ const routes = createBrowserRouter([
       },
     ],
   },
+  // 404 page
   {
     path: '*',
-    element: <NotFound />,
+    element: (
+      <ErrorBoundry>
+        <Suspense>
+          <NotFound />
+        </Suspense>
+      </ErrorBoundry>
+    ),
   },
 ]);
 

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { PatternFormat } from 'react-number-format';
 
-import { cn } from '@/lib/utils';
-import { InputProps } from '@/types/input-form.interface';
+import { cn } from '@/utils/utils';
+import { InputProps } from '@/utils/interfaces/input.interface';
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (

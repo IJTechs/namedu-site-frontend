@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import useScrollToTop from '@/hooks/useScrollToTop';
+import useScrollToTop from '@/hooks/use-scroll-to-top';
 
 const Content = () => {
   useScrollToTop();

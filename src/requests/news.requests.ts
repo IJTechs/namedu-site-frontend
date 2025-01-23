@@ -1,26 +1,17 @@
 import { AxiosResponse } from 'axios';
 
-import API from '@/api/axios.instance';
-import { API_ENDPOINTS } from '@/constants/api-endpoints';
+import API from '@/utils/api/axios.instance';
 
-export interface INews {
-  _id: string;
-  title: string;
-  content: string;
-  image: string;
-  postedAt: Date | string;
-  readTime: number;
-  views: number;
-  socialLinks: Record<string, string>;
-  author: string;
-}
+import { API_URLS } from '@/utils/constants/api-urls';
+
+import { INews } from '@/utils/interfaces/news.interface';
 
 /**
  *Fetches all news data.
  * @returns {Promise<AxiosResponse<INews[]>>} - Array of news data.
  */
 export const getNews = async (): Promise<AxiosResponse<INews[]>> => {
-  return API.get<INews[]>(API_ENDPOINTS.NEWS.getNews);
+  return API.get<INews[]>(API_URLS.NEWS.GET_NEWS);
 };
 
 /**
@@ -31,5 +22,5 @@ export const getNews = async (): Promise<AxiosResponse<INews[]>> => {
 export const getNewsById = async (
   news_id: string
 ): Promise<AxiosResponse<INews>> => {
-  return API.get<INews>(API_ENDPOINTS.NEWS.getNewsById(news_id));
+  return API.get<INews>(API_URLS.NEWS.GET_NEWS_BY_ID(news_id));
 };

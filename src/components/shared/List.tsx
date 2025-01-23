@@ -3,7 +3,7 @@ import { FiDownload } from 'react-icons/fi';
 import { IoEyeSharp } from 'react-icons/io5';
 
 import { Button } from '@/components/shared/Button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/utils';
 
 interface ListProps {
   title?: string;
