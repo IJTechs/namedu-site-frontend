@@ -1,6 +1,8 @@
-import { SOCIAL_MEDIA } from '@/static/socialmedia.static';
 import { Link } from 'react-router-dom';
+
 import { NAVLINKS_STATIC } from '@/static/navlinks.static';
+import { SOCIAL_MEDIA } from '@/static/socialmedia.static';
+import { scrollTo } from '@/utils/scrollTo';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -40,12 +42,14 @@ const Footer = () => {
         {/* Navigation Links */}
         <ul className="flex flex-col items-center sm:items-start  gap-1 text-sm font-light text-white">
           <h2 className="font-normal text-base mb-1">Ma'lumotlar</h2>
-          {NAVLINKS_STATIC.map(({ title }) => (
+          {NAVLINKS_STATIC.map(({ title, to }) => (
             <li
               key={title}
               className="cursor-pointer text-white/70 hover:text-white transition-colors duration-300"
             >
-              {title}
+              <button onClick={() => scrollTo({ targetId: to })}>
+                {title}
+              </button>
             </li>
           ))}
         </ul>

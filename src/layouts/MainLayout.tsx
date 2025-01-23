@@ -1,6 +1,7 @@
 import Content from '@/components/layouts/Content';
 import Footer from '@/components/layouts/Footer';
 import Header from '@/components/layouts/Header';
+import ScrollToTopButton from '@/components/shared/ScrollToTopButton';
 
 const MainLayout = () => {
   return (
@@ -8,6 +9,7 @@ const MainLayout = () => {
       <Header />
       <Content />
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { cn } from '@lib/utils';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { RotatingLines } from 'react-loader-spinner';
-
-import { cn } from '@lib/utils';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:opacity-50 disabled:cursor-not-allowed',
@@ -17,13 +16,13 @@ const buttonVariants = cva(
         secondary: 'text-neutral-900',
         ghost: ' p-0 m-0 h-fit ',
         link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50',
-        icon: 'p-0 m-0 h-fit w-fit',
+        icon: 'p-0 m-0 h-fit w-fit text-[#5791FF]',
       },
       size: {
         default: 'h-9 px-4 py-2 sm:h-10 sm:px-5 lg:h-12 lg:px-6',
         sm: 'h-8 rounded-md px-3 text-xs sm:h-9 sm:px-4 lg:h-10 lg:px-5',
         lg: 'h-10 rounded-md px-8 text-lg sm:h-12 sm:px-10 lg:h-14 lg:px-12',
-        icon: 'h-fit w-fit p-0 m-0',
+        icon: 'h-fit w-fit p-0 m-0 ',
       },
     },
     defaultVariants: {

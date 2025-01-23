@@ -41,7 +41,9 @@
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
       "@static/*": ["src/static/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"]
     }
   },
   "include": ["src"]
