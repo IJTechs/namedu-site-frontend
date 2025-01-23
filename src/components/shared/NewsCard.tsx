@@ -3,10 +3,11 @@ import React from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
 import { Button } from '@/components/shared/Button';
-import { INews } from '@/requests/news.requests';
+import { INews } from '@/utils/interfaces/news.interface';
 import { formatDate } from '@/utils/format-date';
 interface NewsCardProps {
   data: INews;
+  // eslint-disable-next-line no-unused-vars
   onClickMore?: (id: string, title: string) => void;
   cardClassName?: string;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import HeadingH1 from '@/components/shared/Heading';
-import { RegionsStatic } from '@/static/regions.static';
+import { RegionsStatic } from '@/utils/static-resources/regions.static';
 
 const RegioanalAdministaration = () => {
   const [hoveredRegion, setHoveredRegion] = useState('nam-to');

@@ -1,9 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import axiosRetry from 'axios-retry';
 
-import { BASE_URL } from '@/constants/api-endpoints';
-
-// TODO: Gonna be optimized later (interceptors)
+import { BASE_URL } from '@/utils/constants/api-urls';
 
 class RequestWrapper {
   private api: AxiosInstance;
@@ -17,7 +15,7 @@ class RequestWrapper {
     });
 
     axiosRetry(this.api, {
-      retries: 3,
+      retries: 2,
       retryDelay: axiosRetry.exponentialDelay,
       retryCondition: (error) =>
         error.response?.status === 500 || error.response?.status === 503,

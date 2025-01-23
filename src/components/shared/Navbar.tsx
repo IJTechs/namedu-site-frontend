@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/shared/Button';
-import { NAVLINKS_STATIC } from '@/static/navlinks.static';
-import { scrollTo } from '@/utils/scrollTo';
+import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
+import { scrollTo } from '@/utils/scroll-to';
 import preventScrolling from '@/utils/prevent-scrolling';
 
 const Navbar = () => {

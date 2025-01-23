@@ -5,7 +5,7 @@ import { Button } from '@/components/shared/Button';
 import HeadingH1 from '@/components/shared/Heading';
 import List from '@/components/shared/List';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { documentsData } from '@/static/documents.static';
+import { documentsData } from '@/utils/static-resources/documents.static';
 
 const Documents = () => {
   const [activeTab, setActiveTab] = useState(documentsData[0].category);

@@ -30,10 +30,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
-        '@api': path.resolve(__dirname, './src/api'),
         '@components': path.resolve(__dirname, './src/components'),
-        '@constants': path.resolve(__dirname, './src/constants'),
-        '@helpers': path.resolve(__dirname, './src/helpers'),
         '@hooks': path.resolve(__dirname, './src/hooks'),
         '@layouts': path.resolve(__dirname, './src/layouts'),
         '@pages': path.resolve(__dirname, './src/pages'),
@@ -42,12 +39,8 @@ export default defineConfig(({ mode }) => {
         '@routes': path.resolve(__dirname, './src/routes'),
         '@services': path.resolve(__dirname, './src/services'),
         '@styles': path.resolve(__dirname, './src/styles'),
-        '@types': path.resolve(__dirname, './src/types'),
         '@utils': path.resolve(__dirname, './src/utils'),
-        '@static': path.resolve(__dirname, './src/static'),
-        '@lib': path.resolve(__dirname, './src/lib'),
         '@assets': path.resolve(__dirname, './src/assets'),
-        '@config': path.resolve(__dirname, './src/config'),
       },
     },
 

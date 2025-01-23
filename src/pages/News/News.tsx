@@ -2,21 +2,20 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import Breadcrumb from '@/components/shared/BreadCrumb';
 import ShareNews from '@/components/shared/ShareNews';
-import { useGetNews, useGetNewsById } from '@/hooks/news.hooks';
+import { useNewsByIdQuery, useNewsQuery } from '@/queries/news.query';
 import { formatDate } from '@/utils/format-date';
 import { Card } from '@/components/shared/NewsCard';
 import { useEffect } from 'react';
-import { ROUTE_PATHS } from '@/constants/route.paths';
+import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 
 const NewsPage = () => {
   const navigate = useNavigate();
-  const { data: allNews } = useGetNews();
+  const { data: allNews } = useNewsQuery();
 
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
-  const { data: news } = useGetNewsById(id!);
-
+  const { data: news } = useNewsByIdQuery(id!);
   const { title, content, postedAt } = news || {};
 
   useEffect(() => {
@@ -30,13 +29,9 @@ const NewsPage = () => {
 
   const handleNavigate = (news_id: string, news_title: string) => {
     const formattedTitle = news_title.toLowerCase().replace(/\s+/g, '-');
-    if (id === news_id) {
-      navigate(`/${ROUTE_PATHS.NEWS_DETAILS}/${formattedTitle}?id=${news_id}`, {
-        replace: true,
-      });
-    } else {
-      navigate(`/${ROUTE_PATHS.NEWS_DETAILS}/${formattedTitle}?id=${news_id}`);
-    }
+    const newPath = `/${ROUTE_PATHS.NEWS_DETAILS}/${formattedTitle}?id=${news_id}`;
+
+    navigate(newPath, { replace: id === news_id });
   };
 
   return (

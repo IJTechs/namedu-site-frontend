@@ -10,8 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { scrollTo } from '@/utils/scrollTo';
-import { eduInstitutesData } from '@/static/eduInstitites.static';
+import { scrollTo } from '@/utils/scroll-to';
+import { eduInstitutesData } from '@/utils/static-resources/eduInstitites.static';
 import CustomPagination from '@/components/shared/Pagination';
 
 const EduInstitutions = () => {

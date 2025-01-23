@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '../shared/Button';
 
-import { scrollTo } from '@/utils/scrollTo';
+import { scrollTo } from '@/utils/scroll-to';
 
 const ScrollToTopButton = () => {
   const [showScroll, setShowScroll] = useState(false);

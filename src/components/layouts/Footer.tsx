@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import { NAVLINKS_STATIC } from '@/static/navlinks.static';
-import { SOCIAL_MEDIA } from '@/static/socialmedia.static';
-import { scrollTo } from '@/utils/scrollTo';
+import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
+import { SOCIAL_MEDIA } from '@/utils/static-resources/socialmedia.static';
+import { scrollTo } from '@/utils/scroll-to';
 
 const Footer = () => {
   const year = new Date().getFullYear();

@@ -50,7 +50,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
           title={newsTitle}
           className="hover:opacity-80"
         >
-          <Button variant={'icon'} size={'icon'} className="">
+          <Button asChild variant={'icon'} size={'icon'} className="">
             Twitter
           </Button>
         </TwitterShareButton>
@@ -60,7 +60,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
           title={newsTitle}
           className="hover:opacity-80"
         >
-          <Button variant={'icon'} size={'icon'} className="">
+          <Button asChild variant={'icon'} size={'icon'} className="">
             Telegram
           </Button>
         </TelegramShareButton>
