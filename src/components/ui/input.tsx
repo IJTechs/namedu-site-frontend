@@ -1,4 +1,5 @@
-import { Eye, EyeOff } from 'lucide-react';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+
 import * as React from 'react';
 import { PatternFormat } from 'react-number-format';
 
@@ -91,9 +92,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
             >
               {isPasswordVisible ? (
-                <EyeOff className="w-5 h-5 text-gray" />
+                <IoMdEyeOff className="w-5 h-5 text-gray" />
               ) : (
-                <Eye className="w-5 h-5 text-gray" />
+                <IoMdEye className="w-5 h-5 text-gray" />
               )}
             </div>
           )}

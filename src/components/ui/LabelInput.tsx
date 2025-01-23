@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { PatternFormat } from 'react-number-format';
 
 import { cn } from '@/lib/utils';
-import { InputProps } from '@/types/InputProps';
+import { InputProps } from '@/types/input-form.interface';
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (

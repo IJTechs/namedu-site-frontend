@@ -7,10 +7,12 @@ import MainLayout from '@/layouts/MainLayout';
 
 const HomePage = lazy(() => import('@pages/Home/Home'));
 const NewsPage = lazy(() => import('@pages/News/News'));
+import { ROUTE_PATHS } from '@/constants/route.paths';
+import NotFound from '@/pages/404/NotFound';
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: ROUTE_PATHS.ROOT,
     element: (
       <ErrorBoundry>
         <MainLayout />
@@ -28,7 +30,7 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: 'news',
+        path: `${ROUTE_PATHS.NEWS_DETAILS}/:id`,
         element: (
           <ErrorBoundry>
             <Suspense>
@@ -38,6 +40,10 @@ const routes = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 

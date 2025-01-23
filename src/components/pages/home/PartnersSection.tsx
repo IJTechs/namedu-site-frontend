@@ -11,10 +11,30 @@ const Partners = () => {
       <div className="flex items-center gap-10 animate-scroll">
         {[...Array(2)].map((_, idx) => (
           <React.Fragment key={idx}>
-            <img src={EduUz} alt="Partner's logo" className="h-16" />
-            <img src={OliyMajlis} alt="Partner's logo" className="h-16" />
-            <img src={NamHokimligi} alt="Partner's logo" className="h-16" />
-            <img src={InternetPortsli} alt="Partner's logo" className="h-16" />
+            <img
+              src={EduUz}
+              alt="Partner's logo"
+              className="h-16"
+              loading="lazy"
+            />
+            <img
+              src={OliyMajlis}
+              alt="Partner's logo"
+              className="h-16"
+              loading="lazy"
+            />
+            <img
+              src={NamHokimligi}
+              alt="Partner's logo"
+              className="h-16"
+              loading="lazy"
+            />
+            <img
+              src={InternetPortsli}
+              alt="Partner's logo"
+              className="h-16"
+              loading="lazy"
+            />
           </React.Fragment>
         ))}
       </div>

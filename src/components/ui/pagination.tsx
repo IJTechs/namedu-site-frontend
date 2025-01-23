@@ -1,4 +1,8 @@
-import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import {
+  BiSolidChevronLeftSquare,
+  BiSolidChevronRightSquare,
+} from 'react-icons/bi';
+
 import * as React from 'react';
 
 import { ButtonProps, buttonVariants } from '@/components/ui/button';
@@ -65,12 +69,11 @@ const PaginationPrevious = ({
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
-    size="default"
+    size="icon"
     className={cn('gap-1 pl-2.5 cursor-pointer', className)}
     {...props}
   >
-    <ChevronLeft className="h-4 w-4" />
-    <span>Oldingi</span>
+    <BiSolidChevronLeftSquare className="!h-8 !w-8   text-gray-500" />
   </PaginationLink>
 );
 PaginationPrevious.displayName = 'PaginationPrevious';
@@ -81,12 +84,11 @@ const PaginationNext = ({
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to next page"
-    size="default"
+    size="icon"
     className={cn('gap-1 pr-2.5 cursor-pointer', className)}
     {...props}
   >
-    <span>Keyingi</span>
-    <ChevronRight className="h-4 w-4" />
+    <BiSolidChevronRightSquare className="!h-8 !w-8   text-gray-500" />
   </PaginationLink>
 );
 PaginationNext.displayName = 'PaginationNext';
@@ -100,7 +102,7 @@ const PaginationEllipsis = ({
     className={cn('flex h-9 w-9 items-center justify-center', className)}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" />
+    <span>...</span>
     <span className="sr-only">More pages</span>
   </span>
 );

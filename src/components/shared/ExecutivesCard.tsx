@@ -15,11 +15,12 @@ export const ExecutivesCard: React.FC<CardProps> = ({ data }) => {
       whileHover={{ scale: 1.05 }}
       className="group flex  flex-col gap-5 items-center w-full  rounded-12 p-5  overflow-hidden bg-white shadow-card-shadow "
     >
-      <div className="w-[180px] h-[180px] rounded-full overflow-hidden ">
+      <div className="w-[180px] h-[180px] rounded-full overflow-hidden shadow-md ">
         <img
+          loading="lazy"
           src={img}
           alt={name}
-          className="w-full h-full overflow-hidden object-cover rounded-full"
+          className="w-full h-full overflow-hidden object-cover rounded-full "
         />
       </div>
       <div className=" flex flex-col items-center text-center gap-2  p-[14px]">

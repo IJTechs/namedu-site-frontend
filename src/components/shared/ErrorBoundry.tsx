@@ -1,6 +1,7 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 import { ComponentType } from 'react';
 import { useLocation, Location } from 'react-router-dom';
+import { Button } from './Button';
 interface ErrorBoundaryProps extends WithRouterProps {
   children: ReactNode;
 }
@@ -42,22 +43,30 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('Error:', error, info);
+  componentDidCatch(error: Error) {
+    this.setState({ hasError: true, error: error.message });
   }
+  handleNavigateHome = () => {
+    window.location.href = '/';
+  };
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="bg-bgPrimary w-screen h-screen flex flex-col items-center justify-center">
-          {/* <p>
-            “MSecurity” jamoasi yuzaga kelgan noqulayliklar uchun uzr
-            so&apos;raydi. <br /> Veb-sayt o&apos;zgartirilmoqda.
-          </p> */}
-          <h1 className="text-3xl text-red">Error has been occured</h1>
-          {this.state.error && (
-            <p className=" text-xl w-[900px]">Error: {this.state.error}</p>
-          )}
+        <div className="bg-primary-background w-screen h-screen flex flex-col items-center justify-center text-black">
+          <div className="text-center text-xl  space-y-7">
+            <p>
+              Yuzaga kelgan noqulayliklar uchun uzr so&apos;raymiz. <br />{' '}
+              Xatolik tez orada bartaraf etiladi.
+            </p>
+            <Button
+              variant="outline"
+              className="border-secondary-background text-secondary-background"
+              onClick={this.handleNavigateHome}
+            >
+              Bosh sahifaga qaytish
+            </Button>
+          </div>
         </div>
       );
     }

@@ -1,61 +1,80 @@
-'use client';
-
-import React from 'react';
-
 import {
   Pagination,
+  PaginationPrevious,
   PaginationContent,
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
+  PaginationEllipsis,
+} from '../ui/pagination';
 
-interface ReusablePaginationProps {
-  currentPage: number;
-  totalPages: number;
-  // eslint-disable-next-line no-unused-vars
-  onPageChange: (page: number) => void;
-  className?: string;
-}
-
-const CustomPagination: React.FC<ReusablePaginationProps> = ({
-  currentPage,
+const CustomPagination = ({
   totalPages,
+  currentPage,
   onPageChange,
-  className = '',
+}: {
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
 }) => {
+  const pageNumbers = () => {
+    const pages = [];
+
+    if (totalPages <= 3) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (currentPage > 2) {
+        pages.push(1);
+        if (currentPage > 2) {
+          pages.push('...');
+        }
+      }
+
+      const startPage = Math.max(2, currentPage - 1);
+      const endPage = Math.min(totalPages - 1, currentPage + 1);
+
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
+
+      if (currentPage < totalPages - 1) {
+        pages.push('...');
+      }
+      pages.push(totalPages);
+    }
+
+    return pages;
+  };
+
   return (
-    <Pagination className={` flex gap-3 justify-center ${className}`}>
+    <Pagination className="mt-10 md:gap-3">
       <PaginationPrevious
-        className="cursor-pointer bg-secondary-bold text-secondary-strong hover:text-grayLight"
-        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+        onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
       />
-
-      <PaginationContent className="flex gap-2">
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <PaginationItem key={index}>
-            <PaginationLink
-              isActive={currentPage === index + 1}
-              className={`cursor-pointer px-3 py-1 ${
-                currentPage === index + 1
-                  ? 'bg-secondary-bold text-white'
-                  : 'bg-transparent text-tintBlue hover:bg-secondary-bold '
-              }`}
-              onClick={() => onPageChange(index + 1)}
-            >
-              {index + 1}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+      <PaginationContent>
+        {pageNumbers().map((page, index) =>
+          page === '...' ? (
+            <PaginationEllipsis key={index} />
+          ) : (
+            <PaginationItem key={index}>
+              <PaginationLink
+                className="cursor-pointer"
+                isActive={currentPage === page}
+                onClick={() => typeof page === 'number' && onPageChange(page)}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          )
+        )}
       </PaginationContent>
-
       <PaginationNext
-        className="cursor-pointer bg-secondary-bold text-secondary-strong hover:text-grayLight"
-        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
-      >
-        Keyingi
-      </PaginationNext>
+        onClick={() =>
+          currentPage < totalPages && onPageChange(currentPage + 1)
+        }
+      />
     </Pagination>
   );
 };

@@ -1,27 +1,39 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlignJustify } from 'lucide-react';
-import { AlignRight } from 'lucide-react';
+import { HiMenu, HiMenuAlt3 } from 'react-icons/hi';
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/shared/Button';
 import { NAVLINKS_STATIC } from '@/static/navlinks.static';
 import { scrollTo } from '@/utils/scrollTo';
+import preventScrolling from '@/utils/prevent-scrolling';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
+    preventScrolling(!isOpen);
+  };
+  const handleNavigation = (to: string) => {
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        scrollTo({ targetId: to });
+      }, 300); // Reduced delay for better UX
+    } else {
+      scrollTo({ targetId: to });
+    }
   };
 
   return (
     <>
       {/* Main Navbar */}
-      <nav className="flex justify-between items-center w-full  ">
+      <nav className="flex justify-between items-center w-full ">
         {/* Logo */}
         <Link to="/">
-          <img src="/assets/icons/logo.svg" alt="Logo" />
+          <img src="/assets/icons/logo.svg" alt="Logo" loading="lazy" />
         </Link>
 
         {/* Desktop Menu */}
@@ -31,9 +43,7 @@ const Navbar = () => {
               key={title}
               className="cursor-pointer hover:text-[#ffffff]/50 duration-300 font-extralight"
             >
-              <button onClick={() => scrollTo({ targetId: to })}>
-                {title}
-              </button>
+              <button onClick={() => handleNavigation(to)}>{title}</button>
             </li>
           ))}
         </ul>
@@ -47,7 +57,7 @@ const Navbar = () => {
           variant="icon"
           className="hidden xl:flex items-center gap-2 text-white text-2xl"
         >
-          <img src="/assets/icons/call.svg" alt="Call icon" />
+          <img src="/assets/icons/call.svg" alt="Call icon" loading="lazy" />
           <span>1006</span>
         </Button>
 
@@ -59,7 +69,7 @@ const Navbar = () => {
             onClick={toggleMenu}
             aria-label="Toggle Navigation"
           >
-            {isOpen ? <AlignRight /> : <AlignJustify />}
+            {isOpen ? <HiMenuAlt3 /> : <HiMenu />}
           </Button>
         </div>
       </nav>
@@ -91,7 +101,7 @@ const Navbar = () => {
                   >
                     <button
                       onClick={() => {
-                        scrollTo({ targetId: to });
+                        handleNavigation(to);
                         toggleMenu();
                       }}
                     >
@@ -107,7 +117,11 @@ const Navbar = () => {
                   variant="icon"
                   className="bg-secondary-soft w-auto py-[10px] px-4 rounded-12 border-tintBlue text-tintBlue font-normal"
                 >
-                  <img src="/assets/icons/call.svg" alt="Call icon" />
+                  <img
+                    src="/assets/icons/call.svg"
+                    alt="Call icon"
+                    loading="lazy"
+                  />
                   <span>1006</span>
                 </Button>
               </ul>

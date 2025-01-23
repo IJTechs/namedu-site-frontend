@@ -17,9 +17,9 @@ export const sendEmail = async ({
     message,
   };
   await emailjs.send(
-    'service_f4j02kf',
-    'template_y1cf82s',
+    'service_0tqpbhk',
+    'template_jq7sezs',
     templateParams,
-    '3iXzyN0w1eBUUKcs2'
+    'ETaMDc8Ihr7nPECnj'
   );
 };

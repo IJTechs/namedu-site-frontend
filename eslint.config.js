@@ -72,20 +72,6 @@ export default [
         },
       ],
       'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
-
-      // Import rules
-      'import/order': [
-        'error',
-        {
-          groups: [
-            ['builtin', 'external'],
-            'internal',
-            ['parent', 'sibling', 'index'],
-          ],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ],
     },
     settings: {
       react: {

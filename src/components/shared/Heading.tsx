@@ -7,7 +7,7 @@ type HeadingProps = {
 
 const HeadingH1 = ({ children, className = '' }: HeadingProps) => (
   <h1
-    className={`mt-20 mb-14 text-fluid-h3  lg:text-3xl justify-self-center font-semibold text-primary-heading ${className}`}
+    className={`mt-20 mb-10 md:mb-14 text-fluid-h3  lg:text-3xl justify-self-center text-center font-semibold text-primary-heading ${className}`}
   >
     {children}
   </h1>

@@ -7,7 +7,7 @@ const RegioanalAdministaration = () => {
   const [hoveredRegion, setHoveredRegion] = useState('nam-to');
 
   const handleHoverRegion = (regionId: string | null) => {
-    setHoveredRegion(regionId || 'nam-to'); // Show default if null
+    setHoveredRegion(regionId || 'nam-to');
   };
 
   const regionData = hoveredRegion

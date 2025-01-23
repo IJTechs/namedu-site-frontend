@@ -1,76 +1,74 @@
-import { ChevronRight } from 'lucide-react';
 import React from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Button } from './Button';
 
-import { cn } from '@/lib/utils';
-
 interface BreadcrumbProps {
-  separator?: React.ReactNode;
-  homeLabel?: string;
+  separator?: string;
   className?: string;
+  linkClassName?: string;
+  activeClassName?: string;
+  transformLabel?: (label: string) => string;
+  nonClickableSegments?: string[];
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  separator = <ChevronRight className="w-4 h-4 text-black" />,
-  homeLabel = 'Home',
-  className,
+  separator = ' / ',
+  className = '',
+  linkClassName = 'italic text-gray-600 text-sm sm:text-base md:text-lg',
+  activeClassName = 'text-gray-500 font-light text-sm sm:text-base md:text-lg italic',
+  transformLabel = (label) => label.replace(/-/g, ' '),
+  nonClickableSegments = [],
 }) => {
   const location = useLocation();
-  const pathSegments = location.pathname
-    .split('/')
-    .filter((segment) => segment);
-
-  const generateBreadcrumbs = () => {
-    let path = '';
-
-    return pathSegments.map((segment, index) => {
-      path += `/${segment}`;
-      const isLast = index === pathSegments.length - 1;
-      const formattedSegment = segment.replace(/-/g, ' ');
-      return (
-        <React.Fragment key={path}>
-          <li className="flex items-center italic">
-            {!isLast ? (
-              <Link to={path} className=" hover:underline capitalize italic">
-                {formattedSegment}
-              </Link>
-            ) : (
-              <span className="text-gray-700 font-normal capitalize">
-                {formattedSegment}
-              </span>
-            )}
-          </li>
-          {!isLast && <li className="mx-1">{separator}</li>}
-        </React.Fragment>
-      );
-    });
-  };
+  const cleanPathname = location.pathname;
+  const pathSegments = cleanPathname.split('/').filter(Boolean);
 
   return (
     <nav
-      aria-label="breadcrumb"
-      className={cn('flex items-center gap-3 ', className)}
+      className={`breadcrumb ${className} w-full overflow-x-auto scrollbar-hide`}
     >
-      <Button
-        onClick={() => window.history.back()}
-        variant={'icon'}
-        size={'icon'}
-        className=" text-sm bg-slate-300 w-6 h-6 rounded-6 text-black"
-      >
-        <FaChevronLeft />
-      </Button>
-      <ol className="flex items-center space-x-1 text-sm">
+      <ul className="flex items-center space-x-1 whitespace-nowrap">
+        <Button
+          onClick={() => window.history.back()}
+          variant={'icon'}
+          size={'icon'}
+          className="text-xs sm:text-sm bg-slate-300 w-6 h-6  rounded-6 text-black mr-3 flex-shrink-0"
+        >
+          <FaChevronLeft />
+        </Button>
         <li>
-          <Link to="/" className=" hover:underline italic">
-            {homeLabel}
+          <Link to="/" className={linkClassName}>
+            Asosiy
           </Link>
         </li>
-        {pathSegments.length > 0 && <li>{separator}</li>}
-        {generateBreadcrumbs()}
-      </ol>
+        {pathSegments.map((segment, index) => {
+          const isLast = index === pathSegments.length - 1;
+          const fullPath = `/${pathSegments.slice(0, index + 1).join('/')}`;
+
+          // Check if the segment is non-clickable (e.g., news ID)
+          const isNonClickable =
+            nonClickableSegments.includes(segment) || /\d/.test(segment);
+
+          return (
+            <React.Fragment key={index}>
+              <span className="mx-1 text-sm sm:text-base md:text-lg">
+                {separator}
+              </span>
+              {isNonClickable || isLast ? (
+                <span className={activeClassName}>
+                  {transformLabel(segment)}
+                </span>
+              ) : (
+                <Link to={fullPath} className={linkClassName}>
+                  {transformLabel(segment)}
+                </Link>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </ul>
     </nav>
   );
 };
