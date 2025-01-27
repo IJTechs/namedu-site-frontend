@@ -53,7 +53,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="bg-primary-background w-screen h-screen flex flex-col items-center justify-center text-black">
+        <div className="bg-primary-background w-full h-screen flex flex-col items-center justify-center text-black">
           <div className="text-center text-xl  space-y-7">
             <p>
               Yuzaga kelgan noqulayliklar uchun uzr so&apos;raymiz. <br />{' '}

@@ -13,8 +13,9 @@ import CustomPagination from '@/components/shared/Pagination';
 const News = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data: news } = useNewsQuery();
+  const { data: newsData } = useNewsQuery();
   const navigate = useNavigate();
+  const news = newsData?.news;
 
   // Function to handle navigation to news details page
   const handleNavigate = (news_id: string, title: string) => {

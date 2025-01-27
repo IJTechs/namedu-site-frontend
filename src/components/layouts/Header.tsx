@@ -17,14 +17,13 @@ const Header = () => {
   const id = searchParams.get('id');
 
   const { data: news } = useNewsByIdQuery(id || '');
-
   const pathName = location.pathname.startsWith(`/${ROUTE_PATHS.NEWS_DETAILS}`);
 
   const getBackgroundImage = () => {
     if (location.pathname === '/') {
       return Hero_BG;
-    } else if (pathName && news?.image) {
-      return news.image;
+    } else if (pathName && news && news.images.length > 0) {
+      return news.images[0];
     }
     return Hero_BG;
   };

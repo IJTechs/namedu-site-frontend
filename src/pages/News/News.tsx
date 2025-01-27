@@ -16,7 +16,7 @@ const NewsPage = () => {
   const id = searchParams.get('id');
 
   const { data: news } = useNewsByIdQuery(id!);
-  const { title, content, postedAt } = news || {};
+  const { title, content, createdAt } = news || {};
 
   useEffect(() => {
     if (id) {
@@ -34,6 +34,17 @@ const NewsPage = () => {
     navigate(newPath, { replace: id === news_id });
   };
 
+  const truncateUrl = (url: string, maxLength = 40) => {
+    return url.length > maxLength ? `${url.slice(0, maxLength)}...` : url;
+  };
+
+  const formatContentWithLinks = (newsContent: string): string => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return newsContent.replace(urlRegex, (url) => {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 ">${truncateUrl(url)}</a>`;
+    });
+  };
+
   return (
     <div className="min-h-screen h-max max-w-5xl w-full mx-auto relative  p-4 sm:p-6 md:p-8">
       <div className="relative -top-10 w-full flex flex-col gap-6">
@@ -46,13 +57,17 @@ const NewsPage = () => {
         <div className="mt-3 sm:my-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
           <Breadcrumb nonClickableSegments={['yangilik']} />
           <span className="text-xs sm:text-sm font-extralight text-gray-400 flex-shrink-0">
-            {postedAt && formatDate(postedAt)}
+            {createdAt && formatDate(createdAt)}
           </span>
         </div>
 
         {/* News Content */}
         <div className="text-justify leading-relaxed font-light text-base sm:text-lg md:text-xl h-full  p-4 sm:p-6 md:p-8 rounded-12 ">
-          <p>{content}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: formatContentWithLinks(content || ''),
+            }}
+          />
         </div>
 
         {/* Separator */}
@@ -66,15 +81,15 @@ const NewsPage = () => {
 
       {/* Other News Section */}
       <>
-        {allNews && allNews?.length > 1 && (
+        {allNews && allNews.count > 1 && (
           <div className="my-20 ">
             <h2 className="text-xl font-semibold text-primary-heading mb-4">
               Yangiliklar
             </h2>
             <div className="overflow-x-scroll scrollbar-hide  ">
               <div className="flex gap-4 w-max  m-4">
-                {allNews
-                  ?.filter((item) => item._id !== id)
+                {allNews?.news
+                  .filter((item) => item._id !== id)
                   .map((data, index) => (
                     <Card
                       key={index}
