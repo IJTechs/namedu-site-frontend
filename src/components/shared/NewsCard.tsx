@@ -3,10 +3,10 @@ import React from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
 import { Button } from '@/components/shared/Button';
-import { INews } from '@/utils/interfaces/news.interface';
+import { INewsData } from '@/utils/interfaces/news.interface';
 import { formatDate } from '@/utils/format-date';
 interface NewsCardProps {
-  data: INews;
+  data: INewsData;
   // eslint-disable-next-line no-unused-vars
   onClickMore?: (id: string, title: string) => void;
   cardClassName?: string;
@@ -16,7 +16,7 @@ const Card: React.FC<NewsCardProps> = ({
   onClickMore,
   cardClassName,
 }) => {
-  const { _id, image, title, content, postedAt } = data;
+  const { _id, images, title, content, createdAt } = data;
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -29,7 +29,7 @@ const Card: React.FC<NewsCardProps> = ({
       <div className="aspect-[4/1] w-full ">
         <img
           loading="lazy"
-          src={image}
+          src={images[0]}
           alt={title}
           className="object-cover h-[250px]  w-full  rounded-8 transition-transform duration-300 group-hover:scale-105 shadow-md"
         />
@@ -41,7 +41,7 @@ const Card: React.FC<NewsCardProps> = ({
         </div>
         <div className="flex items-center justify-between ">
           <span className="text-sm font-extralight text-neutral-300">
-            {formatDate(postedAt)}
+            {formatDate(createdAt)}
           </span>
           <Button
             onClick={() => onClickMore && onClickMore(_id as string, title)}

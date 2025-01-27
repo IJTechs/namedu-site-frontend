@@ -2,14 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 
 import { QUERY_KEYS } from '@/utils/constants/query-keys';
 import { getNewsServices, getNewsByIdServices } from '@/services/news.service';
-import { INews } from '@/utils/interfaces/news.interface';
+import { INews, INewsData } from '@/utils/interfaces/news.interface';
 
 /**
  * Custom hook to fetch all news
  * @returns {object} query object containing data, error, loading state, etc.
  */
 export const useNewsQuery = () => {
-  return useQuery<INews[], Error>({
+  return useQuery<INews, Error>({
     queryKey: [QUERY_KEYS.NEWS.ALL],
     queryFn: getNewsServices,
     staleTime: 1000 * 60 * 5,
@@ -22,7 +22,7 @@ export const useNewsQuery = () => {
  * @returns {object} query object containing data, error, loading state, etc.
  */
 export const useNewsByIdQuery = (news_id: string) => {
-  return useQuery<INews, Error>({
+  return useQuery<INewsData, Error>({
     queryKey: QUERY_KEYS.NEWS.DETAILS(news_id),
     queryFn: () => getNewsByIdServices(news_id),
     enabled: !!news_id,
