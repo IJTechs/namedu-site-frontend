@@ -2,7 +2,7 @@ import React from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { Link, useLocation } from 'react-router-dom';
 
-import { Button } from './Button';
+import { Button } from './button';
 
 interface BreadcrumbProps {
   separator?: string;

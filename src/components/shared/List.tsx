@@ -2,7 +2,7 @@ import React from 'react';
 import { FiDownload } from 'react-icons/fi';
 import { IoEyeSharp } from 'react-icons/io5';
 
-import { Button } from '@/components/shared/Button';
+import { Button } from '@/components/shared/button';
 import { cn } from '@/utils/utils';
 
 interface ListProps {

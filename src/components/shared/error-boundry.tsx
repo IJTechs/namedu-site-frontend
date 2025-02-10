@@ -1,7 +1,7 @@
 import { Component, ReactNode } from 'react';
 import { ComponentType } from 'react';
 import { useLocation, Location } from 'react-router-dom';
-import { Button } from './Button';
+import { Button } from './button';
 interface ErrorBoundaryProps extends WithRouterProps {
   children: ReactNode;
 }

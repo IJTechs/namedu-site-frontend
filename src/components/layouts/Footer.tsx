@@ -1,11 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { SOCIAL_MEDIA } from '@/utils/static-resources/socialmedia.static';
 import { scrollTo } from '@/utils/scroll-to';
+import { useState } from 'react';
+import preventScrolling from '@/utils/prevent-scrolling';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+    preventScrolling(!isOpen);
+  };
+  const handleNavigation = (to: string) => {
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        scrollTo({ targetId: to });
+      }, 300);
+    } else {
+      scrollTo({ targetId: to });
+    }
+  };
 
   return (
     <footer className="bg-secondary-background flex flex-col gap-10 items-center w-full px-6 sm:px-12 lg:px-32 pt-14 pb-2 text-white">
@@ -47,9 +65,7 @@ const Footer = () => {
               key={title}
               className="cursor-pointer text-white/70 hover:text-white transition-colors duration-300"
             >
-              <button onClick={() => scrollTo({ targetId: to })}>
-                {title}
-              </button>
+              <button onClick={() => handleNavigation(to)}>{title}</button>
             </li>
           ))}
         </ul>

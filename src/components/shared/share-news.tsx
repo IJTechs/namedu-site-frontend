@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiCopy, FiCheck, FiShare2 } from 'react-icons/fi';
 import { TwitterShareButton, TelegramShareButton } from 'react-share';
 
-import { Button } from '@/components/shared/Button';
+import { Button } from '@/components/shared/button';
 
 interface ShareNewsProps {
   newsTitle: string;
@@ -48,11 +48,9 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
         <TwitterShareButton
           url={newsUrl}
           title={newsTitle}
-          className="hover:opacity-80"
+          className="hover:opacity-80 "
         >
-          <Button asChild variant={'icon'} size={'icon'} className="">
-            Twitter
-          </Button>
+          <span className="text-blue-500">Twitter</span>
         </TwitterShareButton>
 
         <TelegramShareButton
@@ -60,9 +58,7 @@ const ShareNews: React.FC<ShareNewsProps> = ({ newsTitle, newsUrl }) => {
           title={newsTitle}
           className="hover:opacity-80"
         >
-          <Button asChild variant={'icon'} size={'icon'} className="">
-            Telegram
-          </Button>
+          <span className="text-blue-500">Telegram</span>
         </TelegramShareButton>
       </div>
     </div>

@@ -2,13 +2,13 @@ import { useState, useMemo } from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '@/components/shared/Button';
-import { CardWrapper } from '@/components/shared/CardWrapper';
-import HeadingH1 from '@/components/shared/Heading';
-import { Card } from '@/components/shared/NewsCard';
+import { Button } from '@/components/shared/button';
+import { CardWrapper } from '@/components/shared/card-wrapper';
+import HeadingH1 from '@/components/shared/heading';
+import { Card } from '@/components/shared/news-card';
 import { useNewsQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
-import CustomPagination from '@/components/shared/Pagination';
+import CustomPagination from '@/components/shared/pagination';
 
 const News = () => {
   const [isShowMore, setIsShowMore] = useState(false);

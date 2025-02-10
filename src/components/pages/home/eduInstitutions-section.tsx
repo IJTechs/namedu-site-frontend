@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Button } from '@/components/shared/Button';
-import HeadingH1 from '@/components/shared/Heading';
+import { Button } from '@/components/shared/button';
+import HeadingH1 from '@/components/shared/heading';
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/table';
 import { scrollTo } from '@/utils/scroll-to';
 import { eduInstitutesData } from '@/utils/static-resources/eduInstitites.static';
-import CustomPagination from '@/components/shared/Pagination';
+import CustomPagination from '@/components/shared/pagination';
 
 const EduInstitutions = () => {
   const [activeTab, setActiveTab] = useState(eduInstitutesData[0].category);
