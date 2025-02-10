@@ -1,11 +1,17 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Toaster } from './components/ui/sonner.tsx';
+import Router from './routes/index.routes.tsx';
+import { ReactQueryLayout } from './layouts/react-query-layout.tsx';
 
 import './styles/index.css';
-import App from './App.tsx';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+const Main = () => {
+  return (
+    <ReactQueryLayout>
+      <Router />
+      <Toaster theme="light" richColors />
+    </ReactQueryLayout>
+  );
+};
+
+createRoot(document.getElementById('root')!).render(<Main />);

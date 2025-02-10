@@ -43,7 +43,7 @@ export default [
         { argsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+
       '@typescript-eslint/no-shadow': ['error'],
 
       // Prettier rules
@@ -72,20 +72,6 @@ export default [
         },
       ],
       'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
-
-      // Import rules
-      'import/order': [
-        'error',
-        {
-          groups: [
-            ['builtin', 'external'],
-            'internal',
-            ['parent', 'sibling', 'index'],
-          ],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ],
     },
     settings: {
       react: {

@@ -26,10 +26,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@helpers/*": ["src/helpers/*"],
       "@hooks/*": ["src/hooks/*"],
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
@@ -38,9 +35,14 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "eslint.config.js",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
 }

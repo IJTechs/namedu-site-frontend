@@ -3,19 +3,42 @@ export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
+    screens: {
+      xxs: '360px',
+      xs: '480px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1920px',
+      '4xl': '2560px',
+    },
     extend: {
-      screens: {
-        xxs: '360px',
-        xs: '480px',
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-        '3xl': '1920px',
-        '4xl': '2560px',
+      animation: {
+        scroll: 'scroll 20s linear infinite',
       },
-
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          xxs: '0.55rem',
+          xs: '0.75rem',
+          sm: '1rem',
+          md: '1.25rem',
+          lg: '1.5rem',
+          xl: '4rem',
+          '2xl': '7rem',
+          '3xl': '16rem',
+          '4xl': '32rem',
+        },
+      },
       borderWidth: {
         0.5: '0.5px',
         1: '1px',
@@ -37,6 +60,10 @@ export default {
         16: '16px',
         18: '18px',
         20: '20px',
+      },
+
+      boxShadow: {
+        'card-shadow': '0px 1px 5px 1px rgba(0, 0, 0, 0.02)',
       },
 
       fontSize: {
@@ -65,6 +92,7 @@ export default {
         // Custom colors
         'rgba-white-10': 'rgba(255, 255, 255, 0.10)',
         'rgba-white-20': 'rgba(255, 255, 255, 0.20)',
+
         'primary-background': 'var(--color-primary-background)',
         'primary-heading': 'var(--color-primary-heading)',
         'primary-text': 'var(--color-primary-text)',
