@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiCopy, FiCheck, FiShare2 } from 'react-icons/fi';
 import { TwitterShareButton, TelegramShareButton } from 'react-share';
 
-import { Button } from '@/components/shared/Button';
+import { Button } from '@/components/shared/button';
 
 interface ShareNewsProps {
   newsTitle: string;

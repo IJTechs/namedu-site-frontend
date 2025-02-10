@@ -4,7 +4,7 @@ import { HiMenu, HiMenuAlt3 } from 'react-icons/hi';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Button } from '@/components/shared/Button';
+import { Button } from '@/components/shared/button';
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { scrollTo } from '@/utils/scroll-to';
 import preventScrolling from '@/utils/prevent-scrolling';
@@ -21,7 +21,7 @@ const Navbar = () => {
       navigate('/');
       setTimeout(() => {
         scrollTo({ targetId: to });
-      }, 300); // Reduced delay for better UX
+      }, 300);
     } else {
       scrollTo({ targetId: to });
     }

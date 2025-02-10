@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <ReactQueryLayout>
       <Router />
-      <Toaster theme="light" />
+      <Toaster theme="light" richColors />
     </ReactQueryLayout>
   );
 };

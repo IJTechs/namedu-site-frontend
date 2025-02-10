@@ -1,7 +1,7 @@
-import Content from '@/components/layouts/Content';
-import Footer from '@/components/layouts/Footer';
-import Header from '@/components/layouts/Header';
-import ScrollToTopButton from '@/components/shared/ScrollToTopButton';
+import Content from '@/components/layouts/content';
+import Footer from '@/components/layouts/footer';
+import Header from '@/components/layouts/header';
+import ScrollToTopButton from '@/components/shared/scroll-top-button';
 
 const MainLayout = () => {
   return (

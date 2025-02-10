@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ErrorBoundry from '@components/shared/ErrorBoundry';
-import Suspense from '@components/shared/Suspense';
+import ErrorBoundry from '@/components/shared/error-boundry';
+import Suspense from '@/components/shared/suspense';
 
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 

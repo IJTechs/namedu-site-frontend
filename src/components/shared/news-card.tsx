@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
-import { Button } from '@/components/shared/Button';
+import { Button } from '@/components/shared/button';
 import { INewsData } from '@/utils/interfaces/news.interface';
 import { formatDate } from '@/utils/format-date';
 interface NewsCardProps {

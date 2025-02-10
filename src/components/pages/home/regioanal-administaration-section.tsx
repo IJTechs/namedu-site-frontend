@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import HeadingH1 from '@/components/shared/Heading';
+import HeadingH1 from '@/components/shared/heading';
 import { RegionsStatic } from '@/utils/static-resources/regions.static';
 
 const RegioanalAdministaration = () => {
