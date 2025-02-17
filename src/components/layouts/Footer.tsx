@@ -3,17 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { SOCIAL_MEDIA } from '@/utils/static-resources/socialmedia.static';
 import { scrollTo } from '@/utils/scroll-to';
-import { useState } from 'react';
-import preventScrolling from '@/utils/prevent-scrolling';
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-    preventScrolling(!isOpen);
-  };
+
   const handleNavigation = (to: string) => {
     if (window.location.pathname !== '/') {
       navigate('/');
