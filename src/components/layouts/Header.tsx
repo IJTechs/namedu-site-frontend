@@ -3,7 +3,7 @@ import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-import Navbar from '../shared/Navbar';
+import Navbar from '../shared/navbar';
 import Hero_BG from '/assets/images/hero_image.png';
 
 import { useNewsByIdQuery } from '@/queries/news.query';
