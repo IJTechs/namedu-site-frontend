@@ -1,13 +1,13 @@
-import Admission from '@/components/pages/home/admission-section';
-import Documents from '@/components/pages/home/documents-section';
-import EduInstitutions from '@/components/pages/home/eduInstitutions-section';
-import Executives from '@/components/pages/home/executives-section';
-import ManagementStructure from '@/components/pages/home/management-structureSection';
-import News from '@/components/pages/home/news-section';
-import Partners from '@/components/pages/home/partners-section';
-import RegioanalAdministaration from '@/components/pages/home/regioanal-administaration-section';
-import Sections from '@/components/pages/home/sections-section';
-import TasksAndFunctions from '@/components/pages/home/tasks-functions-section';
+import Admission from '@/components/pages/home/AdmissionSection';
+import Documents from '@/components/pages/home/DocumentsSection';
+import EduInstitutions from '@/components/pages/home/EduInstitutionsSection';
+import Executives from '@/components/pages/home/ExecutivesSection';
+import ManagementStructure from '@/components/pages/home/ManagementStructureSection';
+import News from '@/components/pages/home/NewsSection';
+import Partners from '@/components/pages/home/PartnersSection';
+import RegioanalAdministaration from '@/components/pages/home/RegioanalAdministarationSection';
+import Sections from '@/components/pages/home/SectionsSection';
+import TasksAndFunctions from '@/components/pages/home/TasksFunctionsSection';
 import Contact from '@/components/shared/contact-form/Contact';
 
 const HomePage = () => {
