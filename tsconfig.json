@@ -6,6 +6,7 @@
   ],
 
   "compilerOptions": {
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -19,7 +20,9 @@
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
-      "@assets/*": ["src/assets/*"],
+      "@assets/*": ["src/assets/*"]
     }
-  }
+  },
+
+  "exclude": ["node_modules", "dist"]
 }
