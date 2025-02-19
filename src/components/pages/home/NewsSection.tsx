@@ -3,7 +3,7 @@ import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/shared/button';
-import { CardWrapper } from '@/components/shared/Card-wrapper';
+import { CardWrapper } from '@/components/shared/CardWrapper';
 import HeadingH1 from '@/components/shared/Heading';
 import { Card } from '@/components/shared/News-card';
 import { useNewsQuery } from '@/queries/news.query';
