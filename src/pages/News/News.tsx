@@ -1,10 +1,10 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import Breadcrumb from '@/components/shared/bread-crumb';
-import ShareNews from '@/components/shared/share-news';
+import Breadcrumb from '@/components/shared/Bread-crumb';
+import ShareNews from '@/components/shared/Share-news';
 import { useNewsByIdQuery, useNewsQuery } from '@/queries/news.query';
 import { formatDate } from '@/utils/format-date';
-import { Card } from '@/components/shared/news-card';
+import { Card } from '@/components/shared/News-card';
 import { useEffect } from 'react';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 

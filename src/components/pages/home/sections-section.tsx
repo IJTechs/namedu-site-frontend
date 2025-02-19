@@ -1,4 +1,4 @@
-import HeadingH1 from '@/components/shared/heading';
+import HeadingH1 from '@/components/shared/Heading';
 import { SectioStatic } from '@/utils/static-resources/sections.static';
 
 const Sections = () => {

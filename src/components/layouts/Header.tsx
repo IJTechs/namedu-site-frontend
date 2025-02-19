@@ -9,7 +9,7 @@ import Hero_BG from '/assets/images/hero_image.png';
 import { useNewsByIdQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import { scrollTo } from '@/utils/scroll-to';
-import SocialSidebar from '../shared/social-sidebar';
+import SocialSidebar from '../shared/Social-sidebar';
 
 const Header = () => {
   const location = useLocation();

@@ -1,4 +1,4 @@
-import HeadingH1 from '@/components/shared/heading';
+import HeadingH1 from '@/components/shared/Heading';
 import List from '@/components/shared/list';
 
 const Admission = () => {
