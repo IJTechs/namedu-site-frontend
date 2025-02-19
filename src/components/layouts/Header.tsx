@@ -1,4 +1,4 @@
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
 import { useLocation, useSearchParams } from 'react-router-dom';

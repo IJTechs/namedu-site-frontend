@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import { CardWrapper } from '@/components/shared/CardWrapper';
 import { ExecutivesCard } from '@/components/shared/ExecutivesCard';
 import HeadingH1 from '@/components/shared/Heading';

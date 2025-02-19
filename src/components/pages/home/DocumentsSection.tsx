@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IoDocuments } from 'react-icons/io5';
 
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import HeadingH1 from '@/components/shared/Heading';
 import List from '@/components/shared/List';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';

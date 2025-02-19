@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import HeadingH1 from '@/components/shared/Heading';
 import {
   Table,
