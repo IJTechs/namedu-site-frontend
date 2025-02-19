@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Loader from './loader';
+import Loader from './Loader';
 
 interface SuspenseProps {
   children: React.ReactNode;

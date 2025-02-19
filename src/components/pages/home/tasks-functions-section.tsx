@@ -1,4 +1,4 @@
-import HeadingH1 from '@/components/shared/heading';
+import HeadingH1 from '@/components/shared/Heading';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 const TasksAndFunctions = () => {
   return (
