@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/shared/BreadCrumb';
 import ShareNews from '@/components/shared/ShareNews';
 import { useNewsByIdQuery, useNewsQuery } from '@/queries/news.query';
 import { formatDate } from '@/utils/format-date';
-import { Card } from '@/components/shared/News-card';
+import { Card } from '@/components/shared/NewsCard';
 import { useEffect } from 'react';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 
