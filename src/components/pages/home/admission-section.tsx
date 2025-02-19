@@ -1,5 +1,5 @@
-import HeadingH1 from '@/components/shared/heading';
-import List from '@/components/shared/list';
+import HeadingH1 from '@/components/shared/Heading';
+import List from '@/components/shared/List';
 
 const Admission = () => {
   const year = new Date().getFullYear();
