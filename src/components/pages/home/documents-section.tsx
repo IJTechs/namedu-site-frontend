@@ -3,7 +3,7 @@ import { IoDocuments } from 'react-icons/io5';
 
 import { Button } from '@/components/shared/button';
 import HeadingH1 from '@/components/shared/Heading';
-import List from '@/components/shared/list';
+import List from '@/components/shared/List';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { documentsData } from '@/utils/static-resources/documents.static';
 

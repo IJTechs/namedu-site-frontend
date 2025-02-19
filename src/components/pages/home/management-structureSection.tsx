@@ -1,7 +1,7 @@
 import Document from '/assets/images/Document.png';
 
 import HeadingH1 from '@/components/shared/Heading';
-import List from '@/components/shared/list';
+import List from '@/components/shared/List';
 
 const ManagementStructure = () => {
   return (
