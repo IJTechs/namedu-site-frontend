@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button } from './button';
+import { Button } from './Button';
 
 import { scrollTo } from '@/utils/scroll-to';
 

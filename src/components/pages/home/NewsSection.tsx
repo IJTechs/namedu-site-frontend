@@ -2,10 +2,10 @@ import { useState, useMemo } from 'react';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '@/components/shared/button';
-import { CardWrapper } from '@/components/shared/Card-wrapper';
+import { Button } from '@/components/shared/Button';
+import { CardWrapper } from '@/components/shared/CardWrapper';
 import HeadingH1 from '@/components/shared/Heading';
-import { Card } from '@/components/shared/News-card';
+import { Card } from '@/components/shared/NewsCard';
 import { useNewsQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import CustomPagination from '@/components/shared/Pagination';

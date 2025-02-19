@@ -4,7 +4,7 @@ import { HiMenu, HiMenuAlt3 } from 'react-icons/hi';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import { NAVLINKS_STATIC } from '@/utils/static-resources/navlinks.static';
 import { scrollTo } from '@/utils/scroll-to';
 import preventScrolling from '@/utils/prevent-scrolling';

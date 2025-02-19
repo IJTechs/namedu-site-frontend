@@ -1,4 +1,4 @@
-import { Button } from '@/components/shared/button';
+import { Button } from '@/components/shared/Button';
 import { PiArrowCircleUpRightFill } from 'react-icons/pi';
 
 import { useLocation, useSearchParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Hero_BG from '/assets/images/hero_image.png';
 import { useNewsByIdQuery } from '@/queries/news.query';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 import { scrollTo } from '@/utils/scroll-to';
-import SocialSidebar from '../shared/Social-sidebar';
+import SocialSidebar from '../shared/SocialSidebar';
 
 const Header = () => {
   const location = useLocation();
