@@ -112,16 +112,12 @@ export const documentsData = [
     ],
   },
   {
-    category: 'Buyruqlar',
+    category: 'Qabul',
     files: [
       {
-        label: "24-sonli Bo'shka'rma KHM kabul buyruq",
-        url: '/assets/files/24_сонли_Бошкарма_КХМ_кабул_буйруги.e98765d7767525f9694a.pdf',
+        label: 'Qabul',
+        url: '/assets/files/qabul.pdf',
       },
     ],
-  },
-  {
-    category: "Yeg'ilish bayonlari",
-    files: [],
   },
 ];

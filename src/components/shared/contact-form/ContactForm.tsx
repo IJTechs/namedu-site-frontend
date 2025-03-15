@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { sendEmail } from '@/utils/api/emailjs.instance';
-import { Toastify } from '../../../utils/toastify';
+import { toast } from 'sonner';
 
 const ContactForm = () => {
   const userFormSchema = z.object({
@@ -35,17 +35,14 @@ const ContactForm = () => {
   const onSubmit = async (data: z.infer<typeof userFormSchema>) => {
     try {
       await sendEmail(data);
-      Toastify({
-        variant: 'success',
-        message: "Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
-      });
+
+      toast.success(
+        "Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz."
+      );
 
       methods.reset();
     } catch {
-      Toastify({
-        variant: 'error',
-        message: "Xatolik yuz berdi. Iltimos qayta urinib ko'ring",
-      });
+      toast.error("Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.");
     }
   };
 

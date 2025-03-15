@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        branch: [main, develop]
+        branch: [main]
 
     steps:
       - name: Checkout code

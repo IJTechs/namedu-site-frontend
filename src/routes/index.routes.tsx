@@ -7,8 +7,13 @@ import Suspense from '@/components/shared/Suspense';
 import { ROUTE_PATHS } from '@/utils/constants/route.paths';
 
 import MainLayout from '@/layouts/main-layout';
-const HomePage = lazy(() => import('@pages/Home/Home'));
-const NewsPage = lazy(() => import('@pages/News/News'));
+
+const HomePage = lazy(() => import('@/pages/HomePage'));
+const NewsContentPage = lazy(() => import('@/pages/NewsContentPage'));
+const AboutDepartmentPage = lazy(() => import('@/pages/AboutDepartmentPage'));
+const EducationalInstitutionsPage = lazy(
+  () => import('@/pages/EducationalInstitutionsPage')
+);
 import NotFound from '@/pages/404/NotFound';
 
 const routes = createBrowserRouter([
@@ -34,11 +39,35 @@ const routes = createBrowserRouter([
       },
       // News details page
       {
-        path: `${ROUTE_PATHS.NEWS_DETAILS}/:id`,
+        path: `${ROUTE_PATHS.NEWS_CONTENT}/:id`,
         element: (
           <ErrorBoundry>
             <Suspense>
-              <NewsPage />
+              <NewsContentPage />
+            </Suspense>
+          </ErrorBoundry>
+        ),
+      },
+
+      //About department page
+      {
+        path: ROUTE_PATHS.ABOUT_DEPARTMENT,
+        element: (
+          <ErrorBoundry>
+            <Suspense>
+              <AboutDepartmentPage />
+            </Suspense>
+          </ErrorBoundry>
+        ),
+      },
+
+      // Educational institutions page
+      {
+        path: ROUTE_PATHS.EDUCATIONAL_INSTITUTIONS,
+        element: (
+          <ErrorBoundry>
+            <Suspense>
+              <EducationalInstitutionsPage />
             </Suspense>
           </ErrorBoundry>
         ),

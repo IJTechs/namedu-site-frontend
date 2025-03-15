@@ -29,7 +29,7 @@ const NewsPage = () => {
 
   const handleNavigate = (news_id: string, news_title: string) => {
     const formattedTitle = news_title.toLowerCase().replace(/\s+/g, '-');
-    const newPath = `/${ROUTE_PATHS.NEWS_DETAILS}/${formattedTitle}?id=${news_id}`;
+    const newPath = `/${ROUTE_PATHS.NEWS_CONTENT}/${formattedTitle}?id=${news_id}`;
 
     navigate(newPath, { replace: id === news_id });
   };

@@ -7,7 +7,7 @@ import InternetPortsli from '/assets/icons/internetportali.svg';
 
 const Partners = () => {
   return (
-    <div id="partners" className="relative overflow-hidden h-20 my-10">
+    <div id="partners" className="relative overflow-hidden h-20 my-32">
       <div className="flex items-center gap-10 animate-scroll">
         {[...Array(2)].map((_, idx) => (
           <React.Fragment key={idx}>

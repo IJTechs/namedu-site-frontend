@@ -8,14 +8,12 @@ const Footer = () => {
   const year = new Date().getFullYear();
   const navigate = useNavigate();
 
-  const handleNavigation = (to: string) => {
-    if (window.location.pathname !== '/') {
-      navigate('/');
+  const handleNavigation = (path: string, to: string) => {
+    navigate(`/${path}`);
+    if (to) {
       setTimeout(() => {
         scrollTo({ targetId: to });
       }, 300);
-    } else {
-      scrollTo({ targetId: to });
     }
   };
 
@@ -54,12 +52,14 @@ const Footer = () => {
         {/* Navigation Links */}
         <ul className="flex flex-col items-center sm:items-start  gap-1 text-sm font-light text-white">
           <h2 className="font-normal text-base mb-1">Ma'lumotlar</h2>
-          {NAVLINKS_STATIC.map(({ title, to }) => (
+          {NAVLINKS_STATIC.map(({ title, path, to }) => (
             <li
               key={title}
               className="cursor-pointer text-white/70 hover:text-white transition-colors duration-300"
             >
-              <button onClick={() => handleNavigation(to)}>{title}</button>
+              <button onClick={() => handleNavigation(path, to || '')}>
+                {title}
+              </button>
             </li>
           ))}
         </ul>
