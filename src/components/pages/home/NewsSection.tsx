@@ -20,7 +20,7 @@ const News = () => {
   // Function to handle navigation to news details page
   const handleNavigate = (news_id: string, title: string) => {
     const formattedTitle = title.toLowerCase().replace(/\s+/g, '-');
-    navigate(`/${ROUTE_PATHS.NEWS_DETAILS}/${formattedTitle}?id=${news_id}`);
+    navigate(`/${ROUTE_PATHS.NEWS_CONTENT}/${formattedTitle}?id=${news_id}`);
   };
 
   // Responsive card count based on screen width
