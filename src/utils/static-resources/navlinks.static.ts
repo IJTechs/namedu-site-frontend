@@ -1,8 +1,19 @@
 export const NAVLINKS_STATIC = [
-  { title: 'Yangiliklar', to: 'news' },
-  { title: 'Rahbariyat', to: 'executives' },
-  { title: 'Boshqarma Haqida', to: 'management' },
-  { title: 'Me’yoriy Hujjatlar', to: 'documents' },
-  { title: 'Ta’lim Muassasalari', to: 'eduInstitutes' },
-  { title: 'Qabul', to: 'admission' },
+  { title: 'Yangiliklar', path: '', to: 'news' },
+
+  {
+    title: 'Boshqarma Haqida',
+    path: 'boshqarma-haqida',
+    sublinks: [
+      { title: 'Rahbariyat', to: 'executives' },
+      { title: 'Vazifalar va funksiyalar', to: 'tasks_and_functions' },
+      { title: "Bo'limlar", to: 'sections' },
+      { title: 'Me’yoriy hujjatlar', to: 'documents' },
+    ],
+  },
+  {
+    title: 'Ta’lim Muassasalari',
+    path: 'talim-muassasalari',
+    to: 'eduInstitutes',
+  },
 ];

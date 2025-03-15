@@ -9,11 +9,8 @@ export default defineConfig({
   plugins: [
     react(),
     visualizer({
-      open: true,
       gzipSize: true,
-      brotliSize: true,
     }),
-    viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
     viteCompression({ algorithm: 'gzip', ext: '.gz' }),
     dynamicImport(),
   ],
@@ -44,7 +41,7 @@ export default defineConfig({
               .toString();
           }
         },
-        assetFileNames: 'assets/[name].[hash].[ext]',
+        assetFileNames: 'assets/[name].[ext]',
       },
       treeshake: true,
     },

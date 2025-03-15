@@ -4,10 +4,10 @@ import HeadingH1 from '@/components/shared/Heading';
 import { RegionsStatic } from '@/utils/static-resources/regions.static';
 
 const RegioanalAdministaration = () => {
-  const [hoveredRegion, setHoveredRegion] = useState('nam-to');
+  const [hoveredRegion, setHoveredRegion] = useState('nam-sha');
 
   const handleHoverRegion = (regionId: string | null) => {
-    setHoveredRegion(regionId || 'nam-to');
+    setHoveredRegion(regionId || 'nam-sha');
   };
 
   const regionData = hoveredRegion
